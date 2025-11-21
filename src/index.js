@@ -2,7 +2,7 @@
 const { Client, GatewayIntentBits } = require('discord.js');
 const { PREFIX, DISCORD_TOKEN } = require('./config');
 const commands = require('./commands');
-const { SQUAD_REFRESH_MS } = require('./constants');
+const { REFRESH_MS } = require('./constants');
 const { getGuildConfig } = require('./config-store');
 
 const client = new Client({
@@ -70,7 +70,7 @@ client.once('ready', () => {
   }
 
   // usa o MESMO tempo do cooldown do !squad
-  setInterval(clearAllowedChannel, SQUAD_REFRESH_MS);
+  setInterval(clearAllowedChannel, REFRESH_MS);
   console.log(`Logado como ${client.user.tag}`);
 });
 
